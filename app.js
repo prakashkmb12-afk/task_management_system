@@ -127,6 +127,8 @@ async function handleLogin() {
     console.error("Google Sign-In Error:", err);
     if (err.code === "auth/popup-closed-by-user") {
       showError("Sign-in cancelled. Please try again when ready.");
+    } else if (err.code === "auth/configuration-not-found") {
+      showError("Google Authentication is not enabled in Firebase Console. Go to Authentication > Sign-in method > Google and click Enable.");
     } else if (err.code === "auth/unauthorized-domain") {
       showError("Domain not authorized in Firebase Console > Authentication > Settings > Authorized domains.");
     } else {
