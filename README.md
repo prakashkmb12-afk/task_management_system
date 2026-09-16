@@ -136,13 +136,15 @@ Allowed Status Values:
 
 ---
 
-## 🌍 Deployment Instructions (Render)
-1. Push your code to your GitHub repository.
-2. Sign in to [Render](https://render.com/).
-3. Click **New + > Static Site**.
-4. Connect your GitHub repository.
-5. Set:
-   - **Name**: `task-management-app`
-   - **Publish Directory**: `.` (Root directory)
-6. Click **Create Static Site**.
-7. Copy your live Render URL (e.g. `https://task-management-app.onrender.com`) and add it to **Firebase Console > Authentication > Settings > Authorized Domains**.
+## 🌍 Deployment Instructions (Firebase Hosting)
+1. Install Firebase CLI globally or use `npx firebase-tools`:
+   ```bash
+   npx firebase login
+   ```
+2. Deploy the application to Firebase Hosting:
+   ```bash
+   npx firebase deploy --only hosting
+   ```
+3. Your application is live at:
+   `https://task-management-app-e305a.web.app` (and `https://task-management-app-e305a.firebaseapp.com`)
+4. Firebase Hosting domains (`.web.app` and `.firebaseapp.com`) are automatically added to **Firebase Console > Authentication > Settings > Authorized Domains**.
