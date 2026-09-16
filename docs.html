@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task Management App - Project Documentation</title>
+  <style>
+    :root {
+      --primary: #2563eb;
+      --text-dark: #0f172a;
+      --text-muted: #64748b;
+      --bg: #f8fafc;
+      --border: #e2e8f0;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; }
+    body { background-color: var(--bg); color: var(--text-dark); padding: 40px 20px; line-height: 1.6; }
+    .doc-container { max-width: 860px; margin: 0 auto; background: #ffffff; padding: 40px; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); border: 1px solid var(--border); }
+    h1 { color: var(--primary); font-size: 1.8rem; margin-bottom: 4px; }
+    .subtitle { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 20px; }
+    hr { border: none; height: 2px; background: var(--primary); margin-bottom: 24px; }
+    h2 { font-size: 1.25rem; color: var(--text-dark); margin-top: 24px; margin-bottom: 12px; border-bottom: 1px solid var(--border); padding-bottom: 4px; }
+    p, li { font-size: 0.95rem; color: #334155; margin-bottom: 8px; }
+    ul { padding-left: 20px; }
+    .table-box { width: 100%; border-collapse: collapse; margin: 16px 0; }
+    .table-box th, .table-box td { border: 1px solid var(--border); padding: 10px 14px; text-align: left; font-size: 0.9rem; }
+    .table-box th { background: #f1f5f9; font-weight: 600; }
+    .link-card { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 16px; margin-bottom: 24px; }
+    .link-card a { color: var(--primary); font-weight: 600; text-decoration: none; word-break: break-all; }
+    .link-card a:hover { text-decoration: underline; }
+    .page-break { page-break-before: always; margin-top: 40px; }
+    @media print {
+      body { background: #ffffff; padding: 0; }
+      .doc-container { box-shadow: none; border: none; padding: 0; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="doc-container">
+  <h1>Task Management Application</h1>
+  <p class="subtitle">Complete Technical & Project Documentation</p>
+  <hr>
+
+  <div class="link-card">
+    <p>🌐 <strong>Live Application URL:</strong> <a href="https://task-management-app-e305a.web.app" target="_blank">https://task-management-app-e305a.web.app</a></p>
+    <p>💻 <strong>GitHub Repository:</strong> <a href="https://github.com/prakashkmb12-afk/task_management_system" target="_blank">https://github.com/prakashkmb12-afk/task_management_system</a></p>
+    <p>📄 <strong>Live Documentation Page:</strong> <a href="https://task-management-app-e305a.web.app/docs.html" target="_blank">https://task-management-app-e305a.web.app/docs.html</a></p>
+  </div>
+
+  <h2>1. Executive Summary</h2>
+  <p>The <strong>Task Management Application</strong> is a fast, responsive, single-page web app designed to let authenticated users create, view, and track personal tasks in real time. It utilizes a zero-build architecture with standard HTML5, CSS3, and JavaScript ES modules to ensure maximum reliability and fast loading speeds.</p>
+
+  <h2>2. Core Application Features</h2>
+  <ul>
+    <li><strong>Google Authentication:</strong> Secure sign-in powered by Firebase Google OAuth 2.0.</li>
+    <li><strong>Task Creation:</strong> Allows adding tasks with mandatory title and optional description.</li>
+    <li><strong>Real-Time Task View:</strong> Displays tasks belonging strictly to the current user, updating automatically via Cloud Firestore listeners.</li>
+    <li><strong>Task Status Management:</strong> Supports exactly three task statuses: <code>Planned</code>, <code>In Progress</code>, and <code>Complete</code>.</li>
+    <li><strong>Status Filter Tabs:</strong> Filter task lists instantly by tab selection.</li>
+  </ul>
+
+  <h2>3. Technical Architecture</h2>
+  <table class="table-box">
+    <thead>
+      <tr>
+        <th>Layer</th>
+        <th>Technology Selected</th>
+        <th>Rationale & Benefit</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Frontend</td>
+        <td>HTML5 & CSS3 (Vanilla)</td>
+        <td>Zero build tool errors, fast execution, responsive UI cards.</td>
+      </tr>
+      <tr>
+        <td>Logic & SDK</td>
+        <td>JavaScript (ES Modules)</td>
+        <td>Direct CDN module imports from official Firebase JS SDK v10.</td>
+      </tr>
+      <tr>
+        <td>Authentication</td>
+        <td>Firebase Auth (Google OAuth)</td>
+        <td>Secure Google login handling with session tracking.</td>
+      </tr>
+      <tr>
+        <td>Database</td>
+        <td>Cloud Firestore</td>
+        <td>NoSQL real-time cloud data storage (`onSnapshot`).</td>
+      </tr>
+      <tr>
+        <td>Hosting</td>
+        <td>Firebase Hosting</td>
+        <td>Global CDN static hosting with SSL security.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="page-break"></div>
+
+  <h2>4. Task Status Lifecycle</h2>
+  <table class="table-box">
+    <thead>
+      <tr>
+        <th>Status State</th>
+        <th>Trigger</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong style="color: #0369a1;">Planned</strong></td>
+        <td>Default</td>
+        <td>Automatically assigned when a new task is created.</td>
+      </tr>
+      <tr>
+        <td><strong style="color: #b45309;">In Progress</strong></td>
+        <td>User Action</td>
+        <td>Selected when active work starts on a task.</td>
+      </tr>
+      <tr>
+        <td><strong style="color: #15803d;">Complete</strong></td>
+        <td>User Action</td>
+        <td>Selected when a task is completed. Badge turns green.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>5. Security & Data Privacy Rules</h2>
+  <ul>
+    <li><strong>User Data Binding:</strong> Tasks are created with <code>userId: currentUser.uid</code>.</li>
+    <li><strong>Data Query Isolation:</strong> Firestore queries fetch documents matching <code>where("userId", "==", currentUser.uid)</code>.</li>
+    <li><strong>Security Rules:</strong> Firestore security rules strictly allow read and write operations to authenticated users.</li>
+  </ul>
+
+  <h2>6. Support & Error Handling Matrix</h2>
+  <table class="table-box">
+    <thead>
+      <tr>
+        <th>Error Condition</th>
+        <th>Handling Mechanism</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Popup Closed / Interrupted</td>
+        <td>Displays error banner instructing user to click once and allow popups.</td>
+      </tr>
+      <tr>
+        <td>Double Click Prevention</td>
+        <td>Disables login button during active login request.</td>
+      </tr>
+      <tr>
+        <td>Empty Task Input</td>
+        <td>Form validation blocks submission and prompts user for title.</td>
+      </tr>
+      <tr>
+        <td>Firestore Permission Error</td>
+        <td>Displays diagnostic message requesting rule update in Firebase Console.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>7. Deployment & Links Summary</h2>
+  <p>The application is deployed live on Firebase Hosting and repository code is tracked on GitHub:</p>
+  <ul>
+    <li>Live Web App: <a href="https://task-management-app-e305a.web.app">https://task-management-app-e305a.web.app</a></li>
+    <li>GitHub Code: <a href="https://github.com/prakashkmb12-afk/task_management_system">https://github.com/prakashkmb12-afk/task_management_system</a></li>
+  </ul>
+</div>
+
+</body>
+</html>
