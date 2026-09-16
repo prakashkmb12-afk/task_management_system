@@ -184,7 +184,11 @@ function subscribeToUserTasks(userId) {
       renderTasks();
     }, (err) => {
       console.error("Firestore Subscribe Error:", err);
-      showError("Failed to fetch your tasks. Please check your Firestore security rules.");
+      if (err.code === "permission-denied") {
+        showError("Firestore Permission Denied: Go to Firebase Console > Firestore Database > Rules tab and allow read/write access.");
+      } else {
+        showError(`Failed to fetch tasks: ${err.message || err.code}`);
+      }
     });
   } catch (err) {
     console.error("Task query setup failed:", err);
@@ -231,7 +235,11 @@ async function handleCreateTask(e) {
     createTaskForm.reset();
   } catch (err) {
     console.error("Create Task Error:", err);
-    showError("Failed to create task. Please try again.");
+    if (err.code === "permission-denied") {
+      showError("Firestore Permission Denied: Go to Firebase Console > Firestore Database > Rules and set 'allow read, write: if request.auth != null;'.");
+    } else {
+      showError(`Failed to create task: ${err.message || err.code || "Unknown error"}`);
+    }
   } finally {
     btnCreateTask.disabled = false;
     showElement(btnCreateText);
