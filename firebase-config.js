@@ -1,10 +1,10 @@
-// Firebase Configuration Placeholder
-// Fill in your Firebase Project credentials below (from Firebase Console > Project Settings)
+// Firebase Configuration for task-management-app
 export const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_PROJECT_ID.appspot.com",
-  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-  appId: "YOUR_APP_ID"
+  apiKey: "AIzaSyDK_Mp2uv0lxN0-Ia9LeNvE7bd2upcHkfg",
+  authDomain: "task-management-app-e305a.firebaseapp.com",
+  projectId: "task-management-app-e305a",
+  storageBucket: "task-management-app-e305a.firebasestorage.app",
+  messagingSenderId: "582169772807",
+  appId: "1:582169772807:web:31017682215f6c75fc7ba2",
+  measurementId: "G-50FQQM58JC"
 };
