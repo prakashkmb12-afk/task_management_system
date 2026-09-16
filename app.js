@@ -121,12 +121,14 @@ function initApp() {
 async function handleLogin() {
   clearError();
   const provider = new GoogleAuthProvider();
+  btnLogin.disabled = true;
+
   try {
     await signInWithPopup(auth, provider);
   } catch (err) {
     console.error("Google Sign-In Error:", err);
-    if (err.code === "auth/popup-closed-by-user") {
-      showError("Sign-in cancelled. Please try again when ready.");
+    if (err.code === "auth/popup-closed-by-user" || err.code === "auth/cancelled-popup-request") {
+      showError("Sign-in popup was closed or interrupted. Please click 'Sign in with Google' once and allow popups.");
     } else if (err.code === "auth/configuration-not-found") {
       showError("Google Authentication is not enabled in Firebase Console. Go to Authentication > Sign-in method > Google and click Enable.");
     } else if (err.code === "auth/unauthorized-domain") {
@@ -134,6 +136,8 @@ async function handleLogin() {
     } else {
       showError(`Sign-in failed: ${err.message || "An unexpected error occurred."}`);
     }
+  } finally {
+    btnLogin.disabled = false;
   }
 }
 
