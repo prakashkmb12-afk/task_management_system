@@ -4,7 +4,7 @@ A fast, clean, and easy-to-use web application to organize and track your daily 
 
 ---
 
-## 🌟 Key Features
+##  Key Features
 - **Google Sign-In**: Securely log in using your Google account with one click.
 - **Create Tasks**: Create new tasks with a title and an optional description.
 - **View Tasks**: See your personal task list in real time, filtered by status.
@@ -12,15 +12,15 @@ A fast, clean, and easy-to-use web application to organize and track your daily 
 
 ---
 
-## 📌 Task Statuses
+##  Task Statuses
 Every task moves through three simple states:
-- 🔵 **Planned**: Tasks you plan to start (default for new tasks).
-- 🟡 **In Progress**: Tasks you are actively working on.
-- 🟢 **Complete**: Tasks you have finished.
+-  **Planned**: Tasks you plan to start (default for new tasks).
+-  **In Progress**: Tasks you are actively working on.
+-  **Complete**: Tasks you have finished.
 
 ---
 
-## 🛠️ Built With
+##  Built With
 - **HTML5 & CSS3**: Clean, responsive user interface.
 - **JavaScript (Vanilla)**: Lightweight application logic.
 - **Firebase Auth**: Secure Google Sign-In authentication.
@@ -28,7 +28,7 @@ Every task moves through three simple states:
 
 ---
 
-## 🚀 Quick Setup & Local Run
+##  Quick Setup & Local Run
 
 1. **Clone the repository**:
    ```bash
